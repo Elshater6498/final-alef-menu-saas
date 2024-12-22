@@ -1,20 +1,19 @@
-import Navigation from "../components/landing/Navigation";
+import Header from "../components/landing/Header";
 import Hero from "../components/landing/Hero";
 import Features from "../components/landing/Features";
-import FAQ from "../components/landing/FAQ";
-import Packages from "../components/landing/Packages";
-import Contact from "../components/landing/Contact";
+import HowItWorks from "../components/landing/HowItWorks";
+import Clients from "../components/landing/Clients";
+import Pricing from "../components/landing/Pricing";
+import ScrollToTop from "../components/landing/ScrollToTop";
 import Footer from "../components/landing/Footer";
 import { useTranslation } from "react-i18next";
 import { FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import WhyMenuSoft from "../components/landing/WhyMenuSoft";
-
 const Landing = () => {
   const { i18n } = useTranslation();
 
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/+966566135585", "_blank");
+    window.open("https://wa.me/+201151220529", "_blank");
   };
 
   return (
@@ -22,15 +21,15 @@ const Landing = () => {
       className="rtl:font-fairuz relative"
       dir={i18n.language === "ar" ? "rtl" : "ltr"}
     >
-      <Navigation />
-      <main>
+      <Header />
+      <main className='max-w-5xl mx-auto px-5'>
         <Hero />
         <Features />
-        <WhyMenuSoft />
-        <FAQ />
-        <Packages />
-        <Contact />
+        <HowItWorks />
+        <Clients />
+        <Pricing />
       </main>
+      <ScrollToTop />
       <Footer />
 
       {/* WhatsApp Fixed Button */}

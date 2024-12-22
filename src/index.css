@@ -41,6 +41,9 @@ input[type="text"]:focus ~ .input-text {
   body {
     @apply dark:bg-gray-700;
   }
+  :root {
+    --radius: 0.5rem;
+  }
 }
 
 @layer components {

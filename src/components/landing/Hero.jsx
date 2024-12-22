@@ -1,55 +1,39 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next"
 
 const Hero = () => {
-  const { t } = useTranslation();
-
+  const { t } = useTranslation("landing")
   return (
-    <section id="hero" className="bg-black text-white min-h-screen">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:grid md:grid-cols-2 gap-8 md:gap-12 py-12 sm:py-16 md:py-20 pt-28 sm:pt-32 md:pt-40"
+    <section id='hero' className='w-full flex flex-col justify-between lg:flex-row-reverse items-center gap-10 lg:gap-10 pt-16 pb-32'>
+      <img
+        src='/landing/hero.png'
+        alt='hero'
+        className='lg:w-[410px]'
+        loading='eager'
+      />
+      <div className='flex flex-col gap-10 md:gap-16'>
+        <div className='flex flex-col'>
+          <h2 className='text-landingMain-900 text-sm mb-4 font-semibold'>
+            {t("hero.subtitle")}
+          </h2>
+          <h1 className='font-bold text-3xl lg:text-4xl xl:text-5xl leading-relaxed mb-4'>
+            {t("hero.title_pt1")}
+          </h1>
+          <h1 className='font-bold text-3xl lg:text-4xl xl:text-5xl leading-relaxed mb-8'>
+            {t("hero.title_pt2")}
+          </h1>
+          <p className='max-w-sm'>{t("hero.desc")}</p>
+        </div>
+        <a
+          href='https://api.whatsapp.com/send?phone=+201100124479&text=Hello,%20more%20information!'
+          target='_blank'
+          rel='noreferrer'
+          className='font-semibold bg-landingMain-900 py-2 px-8 rounded-full text-white outline-none w-fit'
         >
-          <div className='col-span-1 space-y-6 sm:space-y-8 md:space-y-10 flex flex-col justify-center'>
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="flex flex-col items-center space-y-3 sm:space-y-4 md:space-y-6"
-              >
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight ">{t("landing:hero.heroDesc1")}</h1>
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold leading-tight text-gray-200 ">{t("landing:hero.heroDesc2")}</h3>
-                <h5 className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium leading-tight text-gray-300 ">{t("landing:hero.heroDesc3")}</h5>
-              </motion.div>
-            <div className="flex flex-row gap-4">
-              <a 
-                href='#whyMenuSoft' 
-                className="bg-white text-black px-6 sm:px-8 py-3 rounded-full hover:bg-gray-200 transition-colors text-center text-base sm:text-lg"
-              >
-                {t("landing:hero.knowMore")}
-              </a>
-              <a
-                href="#contact"
-                className="bg-white text-black px-6 sm:px-8 py-3 rounded-full hover:bg-gray-200 transition-colors text-center text-base sm:text-lg"
-              >
-                {t("landing:hero.contact")}
-              </a>
-            </div>
-          </div>
-          <div className="col-span-1 min-h-[300px] h-[45vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] rounded-lg overflow-hidden">
-            <img 
-              src="/landing/hero.png" 
-              alt="hero-image" 
-              className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105" 
-            />
-          </div>
-        </motion.div>
+          {t("hero.button")}
+        </a>
+      </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

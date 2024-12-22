@@ -2,26 +2,40 @@
 
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
+  darkMode: ['class', 'class'],
   theme: {
     extend: {
       backgroundImage: {
         logo: "url('/img/logo.png')",
-        heroBg: 'url("/img/bg.png")',
+        heroBg: 'url("/img/bg.png")'
       },
       fontFamily: {
-        fairuz: ['fairuz', 'sans-serif'],
+        fairuz: [
+          'fairuz',
+          'sans-serif'
+        ]
       },
       colors: {
         main: 'var(--primary-color)',
+		landingMain: {
+			100: 'rgba(63, 97, 126, 0.2)',
+			200: 'rgba(63, 97, 126, 0.3)',
+			300: 'rgba(63, 97, 126, 0.4)',
+			400: 'rgba(63, 97, 126, 0.5)',
+			500: 'rgba(63, 97, 126, 0.6)',
+			600: 'rgba(63, 97, 126, 0.7)',
+			700: 'rgba(63, 97, 126, 0.8)',
+			800: 'rgba(63, 97, 126, 0.9)',
+			900: 'rgba(63, 97, 126, 1)',
+		  },
       },
       zIndex: {
-        90: '90',
-        100: '100',
-        101: '101',
-        102: '102',
-        103: '103',
-        104: '104',
+        '90': '90',
+        '100': '100',
+        '101': '101',
+        '102': '102',
+        '103': '103',
+        '104': '104'
       },
       boxShadow: {
         top: {
@@ -31,16 +45,14 @@ export default {
           xl: '0 -20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
           '2xl': '0 -25px 50px -12px rgba(0, 0, 0, 0.25)',
           '3xl': '0 -35px 60px -15px rgba(0, 0, 0, 0.3)',
-          topxl: '0 -35px 60px rgba(0, 0, 0, 0.3)',
+          topxl: '0 -35px 60px rgba(0, 0, 0, 0.3)'
         },
-        topmd:
-          '0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        toplg:
-          '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        topxl: '0 -20px 60px rgba(0, 0, 0, 0.3)',
+        topmd: '0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        toplg: '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        topxl: '0 -20px 60px rgba(0, 0, 0, 0.3)'
       },
       opacity: {
-        15: '.15',
+        '15': '.15'
       },
       height: {
         s30: '30vh',
@@ -52,13 +64,24 @@ export default {
         s75: '75vh',
         s80: '80vh',
         s85: '85vh',
-        s90: '90vh',
+        s90: '90vh'
       },
       fontSize: {
-        xxs: ['0.7rem', '0.75rem'],
-        '2xs': ['0.625rem', '0.75rem'],
+        xxs: [
+          '0.7rem',
+          '0.75rem'
+        ],
+        '2xs': [
+          '0.625rem',
+          '0.75rem'
+        ]
       },
-    },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)'
+      }
+    }
   },
   variants: {
     extend: {
@@ -69,5 +92,5 @@ export default {
     },
     textTransform: ({ after }) => after(['first-letter']),
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }
