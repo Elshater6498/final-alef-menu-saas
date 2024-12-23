@@ -67,7 +67,7 @@ const Features = () => {
           ))}
         </div>
         <img
-          src='/landing/F.png'
+          src='/landing/featurePhone.png'
           alt='icon'
           className='order-last lg:order-2 w-32 lg:w-48'
         />

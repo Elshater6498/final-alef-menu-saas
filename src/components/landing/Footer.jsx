@@ -10,7 +10,7 @@ const { t } = useTranslation('landing');
         {/* LOGO */}
         <Link href="/">
           <img
-            src="/landing/logo_1.svg"
+            src="/landing/alef_logo.svg"
             className="invert brightness-0"
             alt="logo"
             width={100}

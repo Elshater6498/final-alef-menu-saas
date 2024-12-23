@@ -12,7 +12,7 @@ const Header = () => {
           className="flex justify-start items-center gap-2 z-50"
         >
           <img
-            src="/landing/logo_1.svg"
+            src="/landing/alef_logo.svg"
             alt="logo"
             className="w-14 h-auto"
           />

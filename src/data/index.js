@@ -1,5 +1,5 @@
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa"
-import { BsTwitter } from "react-icons/bs";
+import { BsTwitterX } from "react-icons/bs";
 
 export const socialMediaLinks = [
   {
@@ -12,7 +12,7 @@ export const socialMediaLinks = [
     id: 2,
     name: 'twitter',
     url: 'https://twitter.com/i/lists/1666911876943421440',
-    icon: BsTwitter,
+    icon: BsTwitterX,
   },
   {
     id: 3,
@@ -35,31 +35,19 @@ export const partners = [
     link : 'https://saltana.alefmenu.com'
   },
   {
-    logo : '/landing/saltana.png',
-    link : 'https://saltana.alefmenu.com'
+    logo : '/landing/volcano.png',
+    link : 'https://kebabvolcano.com/'
   },
   {
-    logo : '/landing/saltana.png',
-    link : 'https://saltana.alefmenu.com'
+    logo : '/landing/ezz.png',
+    link : 'https://menu.aboalezgrill.com/'
   },
   {
-    logo : '/landing/saltana.png',
-    link : 'https://saltana.alefmenu.com'
+    logo : '/landing/enaba.png',
+    link : 'https://3nb.online/'
   },
   {
-    logo : '/landing/saltana.png',
-    link : 'https://saltana.alefmenu.com'
-  },
-  {
-    logo : '/landing/saltana.png',
-    link : 'https://saltana.alefmenu.com'
-  },
-  {
-    logo : '/landing/saltana.png',
-    link : 'https://saltana.alefmenu.com'
-  },
-  {
-    logo : '/landing/saltana.png',
-    link : 'https://saltana.alefmenu.com'
+    logo : '/landing/kayal.png',
+    link : 'https://kayalalshbab.vercel.app/'
   },
 ]
