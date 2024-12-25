@@ -28,6 +28,7 @@ import { RatingProvider, useRatingContext } from "./context/rating";
 import { useRestaurant } from "./lib/react-query/queriesAndMutations";
 import BusinessHoursDialog from "./components/BusinessHoursDialog";
 import TrackOrderDialog from "./components/TrackOrderDialog";
+import { BASE_URL } from "./constatns";
 
 const RestaurantLayout = () => {
   const { domain } = useParams();
@@ -70,7 +71,6 @@ const RestaurantRoutes = () => {
     trackOrderOn,
   } = useGlobalContext();
   const { modalOn, setModalOn } = useRatingContext();
-
   useEffect(() => {
     if (storeData) {
       document.documentElement.style.setProperty(
@@ -90,59 +90,83 @@ const RestaurantRoutes = () => {
 
     return children;
   };
-
   return (
     <>
       <div className="flex hide-scrollbar">
         <div
-          className="relative max-w-md mx-auto min-h-screen shadow-md transition duration-100 dark:bg-gray-700 hide-scrollbar w-full"
+          className="relative max-w-md md:ml-auto md:mr-0 mx-auto min-h-screen shadow-md transition duration-100 dark:bg-gray-700 hide-scrollbar w-full"
           dir={i18n.language === "en" ? "ltr" : "rtl"}
         >
           <Routes>
-            <Route element={<Layout />}>
-              <Route
-                path="/"
-                element={
-                  isLoading ? (
+              <Route element={<Layout />}>
+                <Route
+                  path="/"
+                  element={
+                    isLoading ? (
+                      <Loader />
+                    ) : (
+                      <Home value={value} setValue={setValue} />
+                    )
+                  }
+                />
+                <Route
+                  path="/:categoryName"
+                  element={<Home value={value} setValue={setValue} />}
+                />
+                <Route path="/delivery" element={<Delivery />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/order-details/:id" element={<OrderDetails />} />
+                <Route path="/track-order/:orderId" element={<TrackOrder />} />
+                <Route
+                  path="/cart"
+                  element={
+                    <Cart singleItem={singleItem} setSingleItem={setSingleItem} />
+                  }
+                />
+                <Route
+                  path="/products/:productId"
+                  element={<SingleItem singleItem={singleItem} />}
+                />
+                <Route
+                  path="/options"
+                  element={
+                    <ProtectedRoute>
+                      <Options />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="/inRestaurant" element={<InRestaurant />} />
+              </Route>
+            </Routes>
+            {modalOn && <RatingDialog setModalOn={setModalOn} />}
+            {showHours && <BusinessHoursDialog setModalOn={setShowHours} />}
+            {trackOrderOn && <TrackOrderDialog />}
+          </div>
+          
+          <div
+              className="hidden md:block h-screen  w-[calc(100%-448px)] !bg-no-repeat !bg-cover fixed"
+              style={{
+                backgroundImage: `url(${storeData?.cover ? BASE_URL + storeData?.cover : "/img/bg.png"})`,
+              }}
+            >
+              <div className="bg-black/50 w-full h-full md:flex items-center justify-center">
+                <div className="h-64 w-64 rounded-full bg-white flex items-center justify-center">
+                  {isLoading ? (
                     <Loader />
                   ) : (
-                    <Home value={value} setValue={setValue} />
-                  )
-                }
-              />
-              <Route
-                path="/:categoryName"
-                element={<Home value={value} setValue={setValue} />}
-              />
-              <Route path="/delivery" element={<Delivery />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/order-details/:id" element={<OrderDetails />} />
-              <Route path="/track-order/:orderId" element={<TrackOrder />} />
-              <Route
-                path="/cart"
-                element={
-                  <Cart singleItem={singleItem} setSingleItem={setSingleItem} />
-                }
-              />
-              <Route
-                path="/products/:productId"
-                element={<SingleItem singleItem={singleItem} />}
-              />
-              <Route
-                path="/options"
-                element={
-                  <ProtectedRoute>
-                    <Options />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/inRestaurant" element={<InRestaurant />} />
-            </Route>
-          </Routes>
-          {modalOn && <RatingDialog setModalOn={setModalOn} />}
-          {showHours && <BusinessHoursDialog setModalOn={setShowHours} />}
-          {trackOrderOn && <TrackOrderDialog />}
-        </div>
+                    <img
+                      src={
+                        storeData?.image
+                          ? BASE_URL + storeData?.image
+                          : "/logo.png"
+                      }
+                      alt={storeData?.name}
+                      className="object-contain"
+                    />
+                  )}
+                </div>
+              </div>
+          </div>
       </div>
       <SideNav
         sideNav={sideNav}

@@ -86,7 +86,7 @@ const RatingDialog = ({ setModalOn }) => {
               {...register("phone", {
                 required: t("customerData:fieldRequired"),
                 pattern: {
-                  value: /^[0-9]{10}$/,
+                  value: /^(010|011|012|015)[0-9]{8}$/,
                   message: t("rating:invalidPhone"),
                 },
               })}

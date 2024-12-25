@@ -23,6 +23,7 @@ import SnapchatIcon from "../icons/snapchat";
 import TelegramIcon from "../icons/telegram";
 import GoogleIcon from "../icons/google-rate";
 import GoogleMapIcon from "../icons/google-map";
+import { BASE_URL } from "@/constatns";
 
 const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
   const { storeData, setTrackOrderOn } = useGlobalContext();
@@ -34,6 +35,9 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
     i18n.language === "ar" ? "left" : "right"
   );
   const [isAnimating, setIsAnimating] = useState(false);
+  console.log('====================================');
+  console.log(position);
+  console.log('====================================');
 
   useEffect(() => {
     if (sideNav) {
@@ -203,16 +207,16 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
       />
       <div
         className={`fixed w-[350px] md:w-[447px] top-0 bg-white flex flex-col dark:bg-gray-700 h-full transition-transform duration-500 ease-out overflow-hidden ${
-          position === "left" ? "right-0" : "left-0"
+          position === "left" ? "right-0" : "left-0 md:right-0 md:left-auto"
         } ${
           sideNav
             ? "translate-x-0"
             : position === "right"
-            ? "-translate-x-full"
+            ? "-translate-x-full md:translate-x-full"
             : "translate-x-full"
         } ${
           position === "right"
-            ? "rounded-tr-3xl rounded-br-3xl"
+            ? "rounded-tr-3xl rounded-br-3xl md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none"
             : "rounded-tl-3xl rounded-bl-3xl"
         }`}
       >
@@ -222,7 +226,28 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
           }`}
           onClick={() => setSideNav(false)}
         />
-        <div className="flex items-center justify-center gap-6 pt-16 pb-10">
+        <div
+          className={`bg-white w-full dark:bg-gray-700 flex items-center justify-center pt-16`}
+        >
+          <img
+            src={
+              storeData?.image ? BASE_URL + storeData?.image : "/logo.png"
+            }
+            alt={storeData?.name}
+            className="w-[100px] h-[100px]"
+          />
+        </div>
+        <div className="text-center mb-4">
+          <h1 className="text-xl font-bold text-main dark:text-white">
+            {storeData?.name}
+          </h1>
+          {storeData?.slogan && (
+            <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+              {storeData.slogan}
+            </p>
+          )}
+        </div>
+        <div className="flex items-center justify-center gap-6 pb-5">
           {socialMediaLinks
             .filter((s) => s.href)
             .map((link) => (
@@ -237,16 +262,6 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
                 <link.Icon className="w-5 h-5 text-main" />
               </a>
             ))}
-        </div>
-        <div className="text-center mb-4">
-          <h1 className="text-xl font-bold text-main dark:text-white">
-            {storeData?.name}
-          </h1>
-          {storeData?.slogan && (
-            <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
-              {storeData.slogan}
-            </p>
-          )}
         </div>
         <div
           dir={i18n.language === "ar" ? "rtl" : "ltr"}
