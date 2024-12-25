@@ -15,14 +15,6 @@ import { useTranslation } from "react-i18next";
 import { useRatingContext } from "../context/rating";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import FacebookIcon from "../icons/facebook";
-import InstagramIcon from "../icons/instagram";
-import TwitterIcon from "../icons/twitter";
-import TiktokIcon from "../icons/tiktok";
-import SnapchatIcon from "../icons/snapchat";
-import TelegramIcon from "../icons/telegram";
-import GoogleIcon from "../icons/google-rate";
-import GoogleMapIcon from "../icons/google-map";
 import { BASE_URL } from "@/constatns";
 
 const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
@@ -35,9 +27,6 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
     i18n.language === "ar" ? "left" : "right"
   );
   const [isAnimating, setIsAnimating] = useState(false);
-  console.log('====================================');
-  console.log(position);
-  console.log('====================================');
 
   useEffect(() => {
     if (sideNav) {
@@ -73,57 +62,6 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
       toast.error(t("shareFaild"));
     }
   };
-
-  const socialMediaLinks = [
-    {
-      id: 1,
-      Icon: FacebookIcon,
-      href: storeData?.socialMedia?.[0]?.value,
-      title: "Facebook",
-    },
-    {
-      id: 2,
-      Icon: InstagramIcon,
-      href: storeData?.socialMedia?.[1]?.value,
-      title: "Instagram",
-    },
-    {
-      id: 3,
-      Icon: TwitterIcon,
-      href: storeData?.socialMedia?.[4]?.value,
-      title: "X",
-    },
-    {
-      id: 4,
-      Icon: TiktokIcon,
-      href: storeData?.socialMedia?.[3]?.value,
-      title: "Tiktok",
-    },
-    {
-      id: 5,
-      Icon: SnapchatIcon,
-      href: storeData?.socialMedia?.[2]?.value,
-      title: "Snapchat",
-    },
-    {
-      id: 6,
-      Icon: TelegramIcon,
-      href: storeData?.socialMedia?.[5]?.value,
-      title: "Telegram",
-    },
-    {
-      id: 7,
-      Icon: GoogleIcon,
-      href: storeData?.socialMedia?.[6]?.value,
-      title: "Google rate",
-    },
-    {
-      id: 8,
-      Icon: GoogleMapIcon,
-      href: storeData?.socialMedia?.[7]?.value,
-      title: "Google Map",
-    },
-  ];
 
   const sideNavData = [
     ...(storeData?.socialMedia?.[7]?.value
@@ -206,7 +144,7 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
         onClick={() => setSideNav(false)}
       />
       <div
-        className={`fixed w-[350px] md:w-[447px] top-0 bg-white flex flex-col dark:bg-gray-700 h-full transition-transform duration-500 ease-out overflow-hidden ${
+        className={`fixed w-[350px] md:w-[447px] top-0 bg-white flex flex-col dark:bg-gray-700 h-full transition-all duration-500 ease-out overflow-hidden ${
           position === "left" ? "right-0" : "left-0 md:right-0 md:left-auto"
         } ${
           sideNav
@@ -221,7 +159,7 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
         }`}
       >
         <BsX
-          className={`eax absolute end-1.5 top-1.5 z-103 w-5 h-5 p-0.5 mx-2 rounded-full bg-gray-700 text-gray-50 hover:bg-gray-400 hover:bg-opacity-50 transform hover:rotate-180 dark:bg-gray-700 dark:text-gray-50 ${
+          className={`eax absolute ${position === "left" ? "start-1.5" : "end-1.5"} top-1.5 z-103 w-5 h-5 p-0.5 mx-2 rounded-full bg-gray-700 text-gray-50 hover:bg-gray-400 hover:bg-opacity-50 transform hover:rotate-180 dark:bg-gray-700 dark:text-gray-50 ${
             sideNav ? "block" : "hidden"
           }`}
           onClick={() => setSideNav(false)}
@@ -230,9 +168,7 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
           className={`bg-white w-full dark:bg-gray-700 flex items-center justify-center pt-16`}
         >
           <img
-            src={
-              storeData?.image ? BASE_URL + storeData?.image : "/logo.png"
-            }
+            src={storeData?.image ? BASE_URL + storeData?.image : "/logo.png"}
             alt={storeData?.name}
             className="w-[100px] h-[100px]"
           />
@@ -246,22 +182,6 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
               {storeData.slogan}
             </p>
           )}
-        </div>
-        <div className="flex items-center justify-center gap-6 pb-5">
-          {socialMediaLinks
-            .filter((s) => s.href)
-            .map((link) => (
-              <a
-                href={link.href}
-                key={link.id}
-                target="_blank"
-                rel="noreferrer"
-                title={link.title}
-                className="cursor-pointer"
-              >
-                <link.Icon className="w-5 h-5 text-main" />
-              </a>
-            ))}
         </div>
         <div
           dir={i18n.language === "ar" ? "rtl" : "ltr"}
@@ -309,7 +229,7 @@ const SideNav = ({ sideNav, setSideNav, setShowHours }) => {
         <span className="text-xs mt-auto py-4 text-center dark:text-gray-300">
           Powered by{" "}
           <Link to="/" className="font-semibold text-main">
-            MENU SOFT
+            Alef
           </Link>{" "}
         </span>
       </div>

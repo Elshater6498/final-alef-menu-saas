@@ -6,7 +6,6 @@ import { options } from "../constatns";
 import { useGlobalContext } from "../context";
 import { IoArrowBack } from "react-icons/io5";
 import { useState } from "react";
-import OtpVerification from "../components/OtpVerification";
 
 const Options = () => {
   const { t, i18n } = useTranslation();
@@ -14,9 +13,6 @@ const Options = () => {
   const navigate = useNavigate();
   const { domain } = useParams();
   const errMessage = t("customerData:fieldRequired");
-  const [showOtpVerification, setShowOtpVerification] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [, setVerifiedPhone] = useState(null);
 
   const {
     register,
@@ -25,13 +21,8 @@ const Options = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    setSelectedOption(data.delivery);
-    setShowOtpVerification(true);
-  };
-
-  const handleVerificationSuccess = (phone) => {
-    setVerifiedPhone(phone);
-    navigate(`/${domain}/delivery?option=${selectedOption}&phone=${phone}`);
+    if(data.delivery === options.INRESTAURANT) navigate(`/${domain}/inRestaurant`);
+    else navigate(`/${domain}/delivery?option=${data.delivery}`);
   };
 
   return (
@@ -47,7 +38,6 @@ const Options = () => {
           <IoArrowBack className="text-lg ltr:rotate-180 rtl:rotate-0" />
         </button>
       </div>
-      {!showOtpVerification ? (
         <form
           className="w-full h-full flex flex-col pt-4 gap-3 px-4 bg-white animateItems dark:bg-gray-700"
           onSubmit={handleSubmit(onSubmit)}
@@ -160,12 +150,6 @@ const Options = () => {
             {t("cart:next")}
           </button>
         </form>
-      ) : (
-        <OtpVerification
-          onVerificationSuccess={handleVerificationSuccess}
-          option={selectedOption}
-        />
-      )}
     </>
   );
 };

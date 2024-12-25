@@ -1,11 +1,18 @@
 import { useTranslation } from "react-i18next";
 import { useState, useEffect, useMemo } from "react";
-
 import { useGlobalContext } from "../context";
 import { Loader, Categories, Item, BottomBar } from "../components";
 import { useProducts } from "../lib/react-query/queriesAndMutations";
 import { Link, useParams } from "react-router-dom";
 import { BASE_URL } from "../constatns";
+import FacebookIcon from "../icons/facebook";
+import InstagramIcon from "../icons/instagram";
+import TwitterIcon from "../icons/twitter";
+import TiktokIcon from "../icons/tiktok";
+import SnapchatIcon from "../icons/snapchat";
+import TelegramIcon from "../icons/telegram";
+import GoogleIcon from "../icons/google-rate";
+import GoogleMapIcon from "../icons/google-map";
 
 const Home = ({ setValue }) => {
   const { t, i18n } = useTranslation();
@@ -89,6 +96,57 @@ const Home = ({ setValue }) => {
     return () => observer.disconnect();
   }, [activeCategories, setValue]);
 
+  const socialMediaLinks = [
+    {
+      id: 1,
+      Icon: FacebookIcon,
+      href: storeData?.socialMedia?.[0]?.value,
+      title: "Facebook",
+    },
+    {
+      id: 2,
+      Icon: InstagramIcon,
+      href: storeData?.socialMedia?.[1]?.value,
+      title: "Instagram",
+    },
+    {
+      id: 3,
+      Icon: TwitterIcon,
+      href: storeData?.socialMedia?.[4]?.value,
+      title: "X",
+    },
+    {
+      id: 4,
+      Icon: TiktokIcon,
+      href: storeData?.socialMedia?.[3]?.value,
+      title: "Tiktok",
+    },
+    {
+      id: 5,
+      Icon: SnapchatIcon,
+      href: storeData?.socialMedia?.[2]?.value,
+      title: "Snapchat",
+    },
+    {
+      id: 6,
+      Icon: TelegramIcon,
+      href: storeData?.socialMedia?.[5]?.value,
+      title: "Telegram",
+    },
+    {
+      id: 7,
+      Icon: GoogleIcon,
+      href: storeData?.socialMedia?.[6]?.value,
+      title: "Google rate",
+    },
+    {
+      id: 8,
+      Icon: GoogleMapIcon,
+      href: storeData?.socialMedia?.[7]?.value,
+      title: "Google Map",
+    },
+  ];
+
   return (
     <>
       <div className="w-full relative flex flex-col items-center justify-center text-center mb-20">
@@ -128,6 +186,22 @@ const Home = ({ setValue }) => {
           </div>
         </Link>
       </div>
+      <div className="flex items-center justify-center gap-6 pb-5">
+          {socialMediaLinks
+            .filter((s) => s.href)
+            .map((link) => (
+              <a
+                href={link.href}
+                key={link.id}
+                target="_blank"
+                rel="noreferrer"
+                title={link.title}
+                className="cursor-pointer"
+              >
+                <link.Icon className="w-5 h-5 text-main" />
+              </a>
+            ))}
+        </div>
       <Categories
         setValue={setValue}
         activeCategory={activeCategory}

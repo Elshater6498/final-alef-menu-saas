@@ -6,6 +6,6 @@ export const QUERY_KEYS = {
   PRODUCT: "product",
   RATE: "rate",
   ORDER: "order",
-  SEND_OTP: "sendOtp",
-  VERIFY_OTP: "verifyOtp",
+  // SEND_OTP: "sendOtp",
+  // VERIFY_OTP: "verifyOtp",
 };

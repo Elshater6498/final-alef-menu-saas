@@ -95,30 +95,3 @@ export const useOrder = (onSuccess, onError) => {
   });
 };
 
-export const useSendOtp = (onSuccess, onError) => {
-  return useMutation({
-    mutationKey: [QUERY_KEYS.SEND_OTP],
-    mutationFn: (data) => {
-      const formData = new FormData();
-      formData.append('phone', data.phone);
-      return axiosBase.post('/otp/send', formData);
-    },
-    onSuccess,
-    onError,
-  });
-};
-
-export const useVerifyOtp = (onSuccess, onError) => {
-  return useMutation({
-    mutationKey: [QUERY_KEYS.VERIFY_OTP],
-    mutationFn: (data) => {
-      const formData = new FormData();
-      formData.append('phone', data.phone);
-      formData.append('code', data.code);
-      return axiosBase.post('/otp/verify', formData);
-    },
-    onSuccess,
-    onError,
-  });
-};
-
