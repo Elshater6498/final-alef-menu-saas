@@ -186,7 +186,7 @@ const Home = ({ setValue }) => {
           </div>
         </Link>
       </div>
-      <div className="flex items-center justify-center gap-6 pb-5">
+      <div className="flex items-center justify-center gap-4 pb-5">
           {socialMediaLinks
             .filter((s) => s.href)
             .map((link) => (
