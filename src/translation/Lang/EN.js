@@ -74,9 +74,10 @@ export const en = {
     back: "Back",
     closed: "Store is now closed",
     restaurantClosed: "Restaurant is Currently Closed",
-    openingHoursMessage: "We're sorry, but the restaurant is currently closed. Please check back during our operating hours.",
+    openingHoursMessage:
+      "We're sorry, but the restaurant is currently closed. Please check back during our operating hours.",
     checkBackLater: "Please check back later",
-    restaurantCurrentlyClosed: "Order when we're open"
+    restaurantCurrentlyClosed: "Order when we're open",
   },
   singleProduct: {
     quantity: "Quantity",
@@ -133,129 +134,138 @@ export const en = {
     copied: "copied",
   },
   notFound: {
-    "title": "Restaurant Not Found",
+    title: "Restaurant Not Found",
     description:
       "The restaurant you're looking for doesn't exist or has been removed.",
     backHome: "Back to Home",
   },
   landing: {
-nav: {
-    features: "Features",
-    how: "How it works",
-    pricing: "Pricing",
-    clients: "Clients",
-    logo_title: "أَلِــــــــفّ ALEF",
-    logo_subtitle: "Grow Your Business",
-  },
-  hero: {
-    subtitle: "Alef Menu",
-    title_pt1: "Elegant digital menu",
-    title_pt2: "with QR code",
-    desc: "A platform for converting the menu of restaurants and stores from paper menu to electronic menu, where customers can access it by scanning the barcode or through the link.",
-    button: "join us"
-  },
-  features: {
-    title: "Why Alef Menu",
-    feature1_title: "Responsive Menu",
-    feature1_desc: "A menu that is responsive in all smart devices",
-    feature2_title: "Easy to use",
-    feature2_desc: "User-friendly design and easy to control",
-    feature3_title: "Google Maps",
-    feature3_desc: "You can insert your location on the map easily and quickly",
-    feature4_title: "Best prices",
-    feature4_desc: "The lowest prices on the market with multiple payment methods",
-    feature5_title: "Functional dashboard",
-    feature5_desc: "Complete control with ease",
-    feature6_title: "technical support",
-    feature6_desc: "Providing support to provide the best possible service"
-  },
-  how: {
-    title: "How it works",
-    subtitle: "Simple steps to get on your menu",
-    step1_title: "Contact us",
-    step1_desc: "Contact us and choose the plan that suits you",
-    step2_title: "Create menu and QR code",
-    step2_desc: "Add your own dishes and prices to your menu through the control panel",
-    step3_title: "Share the QR code with customers",
-    step3_desc: "Share the menu through the QR code or the link",
-    step4_title: "Receive Orders",
-    step4_desc: "View orders from the control panel and print them"
-  },
-  clients: {
-    title: "Our customers"
-  },
-  pricing: {
-    title: "Plans",
-    subtitle: "Plans that suit your needs",
-    basic: "Basic",
-    traditional: "Traditional",
-    basicTitle:"The menu for display only",
-    basicSubtitle:"no ordering option available",
-    traditionalTitle:"The menu for display",
-    traditionalSubtitle:"receive orders directly from the menu",
+    nav: {
+      features: "Features",
+      how: "How it works",
+      pricing: "Pricing",
+      clients: "Clients",
+      logo_title: "أَلِــــــــفّ ALEF",
+      logo_subtitle: "Grow Your Business",
+      dashboard: "Dashboard",
+    },
+    hero: {
+      subtitle: "Alef Menu",
+      title_pt1: "Elegant digital menu",
+      title_pt2: "with QR code",
+      desc: "A platform for converting the menu of restaurants and stores from paper menu to electronic menu, where customers can access it by scanning the barcode or through the link.",
+      button: "join us",
+    },
     features: {
-      dinamicMenu: "Interactive and Dynamic Digital Menu",
-      qr:"QR Code and Custom Link",
-      logo:"Logo and Project Information",
-      appearance:"Customizable Appearance to Match Your Brand Identity",
-      dashboard:"Comprehensive and Easy-to-Use Dashboard",
-      socialMedia:"Integration with Social Media Platforms",
-      googleMap:"Google Maps Link",
-      hours:"Display Business Hours",
-      language:"Multilingual Support",
-      intro:"Restaurant Introduction Page",
-      products:"Unlimited Items",
-      categories:"Unlimited Categories",
-      customerReviews:"Service Ratings and Customer Reviews",
-      whatsapp:"Integration with WhatsApp",
-      edits:"Unlimited Edits During Subscription Period",
-      team:"Our Team Handles Data Entry and Menu Setup",
-      manager:"Dedicated Account Manager",
-      support:"Professional Technical Support via WhatsApp",
-      order:"Direct Ordering from the Menu",
-      type:"Order Type Selection (Pickup, Delivery, Dine-In)",
-      location:"Customer Location for Delivery",
-      table:"Table Ordering System",
-      tableNumber:"Specify Table Number",
-      notes:"Add Notes to Orders",
-      print:"Order Receipt Printing",
-      tracking:"Track Order Status"
-  },
-    best_seller: "best seller",
-    start_now: "Start Now",
-    month: "month",
-    months: "months",
-    pound: "EGP"
-  },
-  footer: {
-    copyright: "All rights reserved to Alef"
-  }
+      title: "Why Alef Menu",
+      feature1_title: "Responsive Menu",
+      feature1_desc: "A menu that is responsive in all smart devices",
+      feature2_title: "Easy to use",
+      feature2_desc: "User-friendly design and easy to control",
+      feature3_title: "Google Maps",
+      feature3_desc:
+        "You can insert your location on the map easily and quickly",
+      feature4_title: "Best prices",
+      feature4_desc:
+        "The lowest prices on the market with multiple payment methods",
+      feature5_title: "Functional dashboard",
+      feature5_desc: "Complete control with ease",
+      feature6_title: "technical support",
+      feature6_desc: "Providing support to provide the best possible service",
+    },
+    how: {
+      title: "How it works",
+      subtitle: "Simple steps to get on your menu",
+      step1_title: "Contact us",
+      step1_desc: "Contact us and choose the plan that suits you",
+      step2_title: "Create menu and QR code",
+      step2_desc:
+        "Add your own dishes and prices to your menu through the control panel",
+      step3_title: "Share the QR code with customers",
+      step3_desc: "Share the menu through the QR code or the link",
+      step4_title: "Receive Orders",
+      step4_desc: "View orders from the control panel and print them",
+    },
+    clients: {
+      title: "Our customers",
+    },
+    pricing: {
+      title: "Plans",
+      subtitle: "Plans that suit your needs",
+      basic: "Basic",
+      traditional: "Traditional",
+      basicTitle: "The menu for display only",
+      basicSubtitle: "no ordering option available",
+      traditionalTitle: "The menu for display",
+      traditionalSubtitle: "receive orders directly from the menu",
+      features: {
+        dinamicMenu: "Interactive and Dynamic Digital Menu",
+        qr: "QR Code and Custom Link",
+        logo: "Logo and Project Information",
+        appearance: "Customizable Appearance to Match Your Brand Identity",
+        dashboard: "Comprehensive and Easy-to-Use Dashboard",
+        socialMedia: "Integration with Social Media Platforms",
+        googleMap: "Google Maps Link",
+        hours: "Display Business Hours",
+        language: "Multilingual Support",
+        intro: "Restaurant Introduction Page",
+        products: "Unlimited Items",
+        categories: "Unlimited Categories",
+        customerReviews: "Service Ratings and Customer Reviews",
+        whatsapp: "Integration with WhatsApp",
+        edits: "Unlimited Edits During Subscription Period",
+        team: "Our Team Handles Data Entry and Menu Setup",
+        manager: "Dedicated Account Manager",
+        support: "Professional Technical Support via WhatsApp",
+        order: "Direct Ordering from the Menu",
+        type: "Order Type Selection (Pickup, Delivery, Dine-In)",
+        location: "Customer Location for Delivery",
+        table: "Table Ordering System",
+        tableNumber: "Specify Table Number",
+        notes: "Add Notes to Orders",
+        print: "Order Receipt Printing",
+        tracking: "Track Order Status",
+      },
+      best_seller: "best seller",
+      start_now: "Start Now",
+      month: "month",
+      months: "months",
+      pound: "EGP",
+    },
+    footer: {
+      copyright: "All rights reserved to Alef",
+    },
   },
   aboutUs: {
     aboutUs: "About Us",
     subtitle: "Creating Digital Menu Experiences",
-    description: "We are dedicated to revolutionizing the dining experience through innovative digital menu solutions. Our platform enables restaurants to showcase their offerings in an elegant and user-friendly way.",
+    description:
+      "We are dedicated to revolutionizing the dining experience through innovative digital menu solutions. Our platform enables restaurants to showcase their offerings in an elegant and user-friendly way.",
     feature1: {
       title: "Digital Innovation",
-      description: "Transform your traditional menu into an interactive digital experience"
+      description:
+        "Transform your traditional menu into an interactive digital experience",
     },
     feature2: {
       title: "User Experience",
-      description: "Intuitive design that makes ordering a breeze for your customers"
+      description:
+        "Intuitive design that makes ordering a breeze for your customers",
     },
     feature3: {
       title: "Real-time Updates",
-      description: "Update your menu items, prices, and availability instantly"
+      description: "Update your menu items, prices, and availability instantly",
     },
     feature4: {
       title: "Analytics & Insights",
-      description: "Gain valuable insights into customer preferences and ordering patterns"
+      description:
+        "Gain valuable insights into customer preferences and ordering patterns",
     },
     ctaTitle: "Ready to Transform Your Menu?",
-    ctaDescription: "Join thousands of restaurants already using our digital menu solution",
+    ctaDescription:
+      "Join thousands of restaurants already using our digital menu solution",
     ctaButton: "Get Started Today",
     back: "Back",
-    goToHome: "Home"
+    goToHome: "Home",
   },
   otp: {
     verifyPhone: "Verify Your Phone Number",
@@ -265,6 +275,6 @@ nav: {
     otpSent: "OTP sent successfully",
     sendError: "Failed to send OTP",
     verifySuccess: "Phone verified successfully",
-    verifyError: "Invalid OTP"
-  }
+    verifyError: "Invalid OTP",
+  },
 };
