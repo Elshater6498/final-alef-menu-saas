@@ -8,11 +8,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useState } from "react";
 
 const Pricing = () => {
   const { t, i18n } = useTranslation("landing");
-  const [isDialog, setIsDialog] = useState(false);
 
   const basicFeatures = [
     t("pricing.features.dinamicMenu"),
@@ -60,10 +58,17 @@ const Pricing = () => {
           className={`flex items-center gap-3 px-2 ${isDialog ? "py-3" : ""}`}
         >
           <FiCheckCircle className="text-xl text-landingMain-900 flex-shrink-0" />
-          <p className="text-gray-600 text-sm">
+          <p
+            className={`text-gray-600 text-sm ${
+              item.includes(t("pricing.allBasicFeatures")) ||
+              item.includes(t("pricing.allTraditionalFeatures"))
+                ? "font-bold"
+                : ""
+            }`}
+          >
             {isDialog
               ? item.length > 30
-                ? item.slice(0, 28) + "..."
+                ? item.slice(0, 30) + "..."
                 : item
               : item}
           </p>
@@ -114,7 +119,10 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="py-10 bg-gray-50" id="pricing">
+    <section
+      className="py-10 bg-gray-50 shadow-[0_0_0_100vmax_rgb(249_250_251)] [clip-path:inset(0_-100vmax)] w-full"
+      id="pricing"
+    >
       <div className="flex flex-col w-full gap-2 mb-8">
         <h2 className="font-bold text-2xl md:text-3xl text-center">
           {t("pricing.title")}
