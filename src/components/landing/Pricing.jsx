@@ -68,7 +68,7 @@ const Pricing = () => {
           >
             {isDialog
               ? item.length > 30
-                ? item.slice(0, 30) + "..."
+                ? item.slice(0, 28) + "..."
                 : item
               : item}
           </p>
