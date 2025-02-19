@@ -61,7 +61,11 @@ const Pricing = () => {
         >
           <FiCheckCircle className="text-xl text-landingMain-900 flex-shrink-0" />
           <p className="text-gray-600 text-sm">
-            {item.length > 30 ? item.slice(0, 28) + "..." : item}
+            {isDialog
+              ? item.length > 30
+                ? item.slice(0, 28) + "..."
+                : item
+              : item}
           </p>
         </div>
       ))}
@@ -191,7 +195,7 @@ const Pricing = () => {
                 </DialogTrigger>
                 <DialogContent
                   dir={i18n.language === "ar" ? "rtl" : "ltr"}
-                  className="max-h-[80vh] overflow-y-auto"
+                  className="max-h-[80vh] overflow-y-auto text-center"
                 >
                   <DialogHeader>
                     <DialogTitle>{t("pricing.dialogTitle")}</DialogTitle>
